@@ -1,0 +1,177 @@
+/* Styles for the Cashier POS screens (New Sale, Bills). Purely additive —
+   every color and spacing unit reuses the tokens already defined in
+   global.css. No new theme was introduced. */
+
+.pos-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .pos-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pos-product-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+}
+
+.pos-product-row:last-child {
+  border-bottom: none;
+}
+
+.pos-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pos-product-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pos-product-meta {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.pos-cart-sticky {
+  position: sticky;
+  top: calc(var(--header-height) + 1rem);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+  gap: 0.75rem;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cart-item-price {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.cart-remove-btn {
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+  transition: color var(--transition-fast);
+}
+
+.cart-remove-btn:hover {
+  color: #F5695A;
+}
+
+.pos-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.pos-summary-row.total {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+}
+
+.pos-empty-cart {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Receipt / invoice view */
+.receipt {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.receipt-invoice-number {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.receipt-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  color: var(--text-secondary);
+}
+
+.receipt-line.item-name {
+  color: var(--text-primary);
+}
+
+.receipt-divider {
+  border-top: 1px dashed var(--border-color);
+  margin: 0.75rem 0;
+}
+
+.receipt-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.barcode-scanner video,
+.barcode-scanner canvas {
+  width: 100%;
+  max-height: 240px;
+  border-radius: 0.75rem;
+}

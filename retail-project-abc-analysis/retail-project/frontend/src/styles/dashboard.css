@@ -1,0 +1,264 @@
+.dashboard-container {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.welcome-text {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  display: inline-block;
+}
+
+.dashboard-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(110px, auto);
+  grid-auto-flow: dense;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stats-grid.grid-3 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-card {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius-widget);
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--widget-shadow);
+}
+
+.stat-card-hero {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.stat-card-hero .stat-value {
+  font-size: 2.5rem;
+}
+
+.stat-card-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .stats-grid,
+  .stats-grid.grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card-hero {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--main-color);
+  opacity: 1;
+  transition: opacity var(--transition-base);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  box-shadow: 4px 8px 32px rgba(109, 105, 105, 0.22);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-icon {
+  display: none;
+}
+
+.stat-info h3 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.stat-card-actions h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.quick-actions-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.actions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.action-btn {
+  background: #fff;
+  color: var(--text-primary);
+  border: 1px solid rgba(50, 50, 50, 0.2);
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--main-color);
+  transform: translateY(-1px);
+}
+
+.action-primary {
+  background: var(--main-color);
+  color: #fff;
+  border: none;
+}
+
+.action-primary:hover {
+  background: var(--main-color-dark);
+  box-shadow: var(--shadow-glow);
+  border-color: transparent;
+}
+
+.sales-trend-section {
+  margin: 0 0 1.75rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-widget);
+  padding: 1.5rem;
+  box-shadow: var(--widget-shadow);
+}
+
+.sales-trend-header {
+  margin-bottom: 0.75rem;
+}
+
+.sales-trend-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sales-trend-header h2 {
+  color: var(--accent-text);
+  margin-bottom: 0.35rem;
+}
+
+.sales-trend-kpis span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.sales-trend-kpis strong {
+  font-size: 1.45rem;
+  color: var(--accent-text);
+}
+
+.sales-trend-kpis .trend-up { color: #FEB049; }
+.sales-trend-kpis .trend-down { color: #D9493A; }
+
+.sales-trend-chart-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sales-trend-chart {
+  width: 100%;
+  min-width: 520px;
+  height: auto;
+}
+
+.chart-axis {
+  stroke: rgba(254, 176, 73, 0.28);
+  stroke-width: 1.5;
+}
+
+.chart-axis-title,
+.chart-axis-caption,
+.chart-tick,
+.chart-pred-label {
+  fill: #323232;
+  font-size: 11px;
+  font-family: inherit;
+}
+
+.chart-axis-title {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.chart-pred-label {
+  font-style: italic;
+  fill: #FEB049;
+  font-weight: 600;
+}
+
+.chart-line-hist {
+  stroke: #FEB049;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-line-pred {
+  stroke: #FFD887;
+  stroke-width: 3;
+  stroke-dasharray: 7 5;
+  stroke-linecap: round;
+}
+
+.chart-dot-hist {
+  fill: #F29A2E;
+}
+
+.chart-dot-pred {
+  fill: #fff;
+  stroke: #FEB049;
+  stroke-width: 2.5;
+}

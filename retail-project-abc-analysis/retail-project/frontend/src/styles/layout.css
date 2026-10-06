@@ -1,0 +1,315 @@
+/* App shell — port of One React's Sidebar + Header + Layout.
+   White sidebar with the yellow logo bar, dark navbar, #FAFAFA content. */
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ------------------------------ Sidebar ------------------------------ */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-sidebar);
+  box-shadow: 4px 4px 25px rgba(109, 105, 105, 0.15);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--main-color);
+  flex-shrink: 0;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+
+.logo-text strong {
+  font-weight: 700;
+}
+
+.sidebar-nav {
+  flex: 1;
+  min-height: 0;
+  padding: 10px 0 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+}
+
+.nav-title {
+  margin: 26px 0 8px 32px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.nav-title:first-child {
+  margin-top: 20px;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 32px;
+  min-height: 44px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 400;
+  border-right: 3px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  font-weight: 700;
+  background: rgba(255, 173, 1, 0.06);
+}
+
+.nav-link.active {
+  font-weight: 700;
+  background: rgba(255, 173, 1, 0.1);
+  border-right-color: var(--main-color);
+}
+
+.nav-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.nav-icon img {
+  position: absolute;
+  inset: 0;
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.15s ease;
+}
+
+.nav-icon .icon-on { opacity: 0; }
+.nav-link.active .icon-on,
+.nav-link:hover .icon-on { opacity: 1; }
+.nav-link.active .icon-off,
+.nav-link:hover .icon-off { opacity: 0; }
+
+.sidebar-footer {
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.user-role {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ink);
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid rgba(50, 50, 50, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.logout-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.logout-btn:hover {
+  background: var(--main-color);
+  border-color: var(--main-color);
+  color: #fff;
+}
+
+/* ------------------------------ Content ------------------------------ */
+.content-wrap {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 32px;
+  background: #323232;
+  color: #fff;
+}
+
+.navbar-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  width: 56px;
+  margin-left: -32px;
+  background: var(--main-color);
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.navbar-title {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+.navbar-crumb {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+.navbar-spacer {
+  flex: 1;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--main-color);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.navbar-user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.navbar-user-role {
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--content-padding);
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+/* ------------------------------ Responsive ------------------------------ */
+@media (max-width: 991px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+
+  .layout-container.sidebar-open .sidebar {
+    transform: translateX(0);
+    box-shadow: 4px 4px 25px rgba(109, 105, 105, 0.35);
+  }
+
+  .layout-container.sidebar-open .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 998;
+  }
+
+  .content-wrap {
+    margin-left: 0;
+  }
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar-toggle {
+    display: flex;
+    margin-left: -20px;
+  }
+
+  .navbar-user-text,
+  .navbar-crumb {
+    display: none;
+  }
+
+  .main-content {
+    padding: 25px;
+  }
+}

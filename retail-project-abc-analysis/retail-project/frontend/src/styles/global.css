@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Design tokens — ported from the "One React" (Flatlogic) admin template.
+   Default yellow theme: #FEB049 accent, #323232 ink, #FAFAFA canvas,
+   white widgets with the template's soft 4/4/25 drop-shadow, Nunito type.
+   Existing variable names are kept so every page keeps working.
+   ========================================================================== */
+:root {
+  /* Template palette */
+  --main-color: #FEB049;
+  --main-color-dark: #F29A2E;
+  --main-color-soft: rgba(254, 176, 73, 0.14);
+  --accent-text: #B87400;
+  --ink: #323232;
+  --blue: #007BC6;
+  --green: #3BBF97;
+  --red: #F5695A;
+  --cyan: #12B4DE;
+
+  /* Surfaces */
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #FAFAFA;
+  --bg-card: #ffffff;
+  --bg-card-hover: #FFF8EC;
+  --bg-sidebar: #ffffff;
+  --border-color: rgba(196, 196, 196, 0.35);
+  --border-glow: #FEB049;
+
+  /* Text */
+  --text-primary: #323232;
+  --text-secondary: #495057;
+  --text-muted: #798892;
+
+  /* Buttons / accents (template uses flat fills, no gradients) */
+  --gradient-primary: linear-gradient(0deg, #FEB049, #FEB049);
+  --gradient-secondary: linear-gradient(0deg, #FFC46B, #FFC46B);
+  --gradient-success: linear-gradient(0deg, #3BBF97, #3BBF97);
+  --gradient-warning: linear-gradient(0deg, #FEB04A, #FEB04A);
+  --gradient-danger: linear-gradient(0deg, #F5695A, #F5695A);
+
+  /* Shadows — template "widget-shadow" */
+  --shadow-sm: 0 1px 3px rgba(109, 105, 105, 0.12);
+  --shadow-md: 4px 4px 25px rgba(109, 105, 105, 0.15);
+  --shadow-lg: 4px 8px 32px rgba(109, 105, 105, 0.22);
+  --shadow-glow: 0 4px 14px rgba(254, 176, 73, 0.45);
+  --widget-shadow: 4px 4px 25px rgba(109, 105, 105, 0.15);
+  --radius-widget: 8px;
+
+  /* Layout (template: sidebar 284px, navbar 66px) */
+  --sidebar-width: 284px;
+  --header-height: 66px;
+  --content-padding: 40px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.14);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+::selection {
+  background: rgba(254, 176, 73, 0.35);
+}
+
+.gradient-text {
+  color: var(--text-primary);
+}
