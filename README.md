@@ -1,6 +1,6 @@
 # JAVA_PBL
 
-# RetailPro – Multi-Branch Retail Management System
+# RetailPro – Smart Retail Chain Management System
 
 RetailPro is a full-stack **multi-branch retail management system** designed to simplify and automate day-to-day retail operations. The system provides centralized management of products, inventory, sales, customers, suppliers, employees, and branch operations through a role-based platform.
 
